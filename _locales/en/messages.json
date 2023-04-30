@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Duplicate Tab",
+        "description": "The name of the extension, displayed in the web store."
+    },
+    "appDesc": {
+        "message": "Simple extension to assign a hotkey to the Duplicate Tab action.",
+        "description": "The description of the extension, displayed in the web store."
+    }
+}
