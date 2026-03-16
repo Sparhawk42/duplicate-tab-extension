@@ -8,9 +8,16 @@
         "service_worker": "scripts/background.js"
     },
     "action": {
-        "default_icon": "images/duptab.png"
+        "default_icon": "images/duptab.png",
+        "theme_icons": [
+            {
+                "light": "images/duptab.png",
+                "dark": "images/duptab.png",
+                "size": 32
+            }
+        ]
     },
-    "permissions": ["activeTab", "offscreen"],
+    "permissions": ["activeTab"],
     "commands": {
         "_execute_action": {
             "suggested_key": "Ctrl+Shift+D"
