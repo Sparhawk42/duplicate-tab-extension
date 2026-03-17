@@ -3,7 +3,7 @@ function drawDuplicateIcon(canvas, isDarkMode) {
     const size = canvas.width;
 
     ctx.clearRect(0, 0, size, size);
-    ctx.fillStyle = isDarkMode ? '#ffffff' : '#111111';
+    ctx.fillStyle = isDarkMode ? '#c7c7c7' : '#474747';
 
     ctx.fillRect(Math.round(size * 0.27), 0, Math.round(size * 0.73), Math.round(size * 0.73));
     ctx.clearRect(Math.round(size * 0.17), Math.round(size * 0.10), Math.round(size * 0.73), Math.round(size * 0.73));
