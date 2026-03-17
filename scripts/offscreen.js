@@ -1,3 +1,34 @@
+function drawDuplicateIcon16(ctx) {
+    ctx.fillRect(4, 0, 12, 12);
+    ctx.clearRect(4, 2, 10, 10);
+    ctx.fillRect(0, 4, 12, 12);
+    ctx.clearRect(2, 6, 8, 8);
+    ctx.fillRect(5, 7, 2, 6);
+    ctx.fillRect(3, 9, 6, 2);
+}
+
+function drawDuplicateIcon32(ctx) {
+    // Tuned 32x32 variant for better optical balance than pure scaling.
+    ctx.fillRect(6, 0, 26, 26);
+    ctx.clearRect(6, 3, 23, 23);
+    ctx.fillRect(0, 6, 26, 26);
+    ctx.clearRect(3, 9, 20, 20);
+    ctx.fillRect(11, 12, 4, 14);
+    ctx.fillRect(6, 17, 14, 4);
+}
+
+function drawDuplicateIconScaled(ctx, size) {
+    const scale = size / 16;
+    const px = (value) => Math.round(value * scale);
+
+    ctx.fillRect(px(4), px(0), px(12), px(12));
+    ctx.clearRect(px(4), px(2), px(10), px(10));
+    ctx.fillRect(px(0), px(4), px(12), px(12));
+    ctx.clearRect(px(2), px(6), px(8), px(8));
+    ctx.fillRect(px(5), px(7), px(2), px(6));
+    ctx.fillRect(px(3), px(9), px(6), px(2));
+}
+
 function drawDuplicateIcon(canvas, isDarkMode) {
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     const size = canvas.width;
@@ -5,14 +36,17 @@ function drawDuplicateIcon(canvas, isDarkMode) {
     ctx.clearRect(0, 0, size, size);
     ctx.fillStyle = isDarkMode ? '#c7c7c7' : '#474747';
 
-    ctx.fillRect(Math.round(size * 0.27), 0, Math.round(size * 0.73), Math.round(size * 0.73));
-    ctx.clearRect(Math.round(size * 0.17), Math.round(size * 0.10), Math.round(size * 0.73), Math.round(size * 0.73));
+    if (size === 16) {
+        drawDuplicateIcon16(ctx);
+        return;
+    }
 
-    ctx.fillRect(0, Math.round(size * 0.21), Math.round(size * 0.79), Math.round(size * 0.79));
-    ctx.clearRect(Math.round(size * 0.10), Math.round(size * 0.31), Math.round(size * 0.58), Math.round(size * 0.58));
+    if (size === 32) {
+        drawDuplicateIcon32(ctx);
+        return;
+    }
 
-    ctx.fillRect(Math.round(size * 0.17), Math.round(size * 0.54), Math.round(size * 0.46), Math.round(size * 0.13));
-    ctx.fillRect(Math.round(size * 0.33), Math.round(size * 0.38), Math.round(size * 0.13), Math.round(size * 0.46));
+    drawDuplicateIconScaled(ctx, size);
 }
 
 function buildDynamicIconImageData() {
