@@ -3,14 +3,14 @@
     "name": "__MSG_appName__",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
-    "version": "0.0.0.1",
+    "version": "0.0.0.2",
     "background": {
         "service_worker": "scripts/background.js"
     },
     "action": {
-        "default_icon": "images/duptab.png"
+        "default_icon": "images/duplicate-tab-icon-32.png"
     },
-    "permissions": ["activeTab"],
+    "permissions": ["activeTab", "offscreen"],
     "commands": {
         "_execute_action": {
             "suggested_key": "Ctrl+Shift+D"
