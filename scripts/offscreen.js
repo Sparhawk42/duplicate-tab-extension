@@ -8,7 +8,6 @@ function drawDuplicateIcon16(ctx) {
 }
 
 function drawDuplicateIcon32(ctx) {
-    // Tuned 32x32 variant for better optical balance than pure scaling.
     ctx.fillRect(6, 0, 26, 26);
     ctx.clearRect(6, 3, 23, 23);
     ctx.fillRect(0, 6, 26, 26);
@@ -100,5 +99,3 @@ chrome.runtime.onMessage.addListener((message) => {
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     sendDynamicIconToServiceWorker();
 });
-
-sendDynamicIconToServiceWorker();
